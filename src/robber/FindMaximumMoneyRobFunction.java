@@ -37,20 +37,44 @@ public class FindMaximumMoneyRobFunction {
 	// return result;
 	// }
 
-	public int rob(int[] nums) {
-		if (nums.length == 0) {
+	// Using iterative way with memo as to track the max from bottom-top
+	// public int rob(int[] nums) {
+	// if(nums.length == 0){
+	// return 0;
+	// }
+
+	// // This will keep track of maximum profit
+	// int[] memo = new int[nums.length + 1];
+
+	// // Store 0 since if its 1,2 then there is a zero in front of 1
+	// memo[0] = 0;
+	// memo[1] = nums[0];
+
+	// // Start from 1 to nums.length
+	// for(int i = 1; i < nums.length; i++){
+	// // Store the next max value into memo[i + 1]
+	// memo[i + 1] = Math.max(memo[i], memo[i - 1] + nums[i]);
+	// }
+
+	// // The last element of memo will be the max profit
+	// return memo[nums.length];
+	// }
+	
+	public int rob(int[] nums){
+		if(nums.length == 0){
 			return 0;
 		}
-
-		int prev1 = 0;
-		int prev2 = 0;
-
-		for (int num : nums) {
-			int tmp = prev1;
-			prev1 = Math.max(prev2 + num, prev1);
-			prev2 = tmp;
+		
+		int currentMax = 0;
+		int previousMax = 0;
+		
+		// Starting from first element, keep track of the max
+		for(int num : nums){
+			int temp = currentMax;
+			currentMax = Math.max(previousMax + num, currentMax);
+			previousMax = temp;
 		}
-
-		return prev1;
+		
+		return currentMax;
 	}
 }
