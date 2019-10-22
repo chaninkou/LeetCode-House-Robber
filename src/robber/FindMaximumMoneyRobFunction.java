@@ -78,29 +78,31 @@ public class FindMaximumMoneyRobFunction {
 //		return currentMax;
 //	}
 	
-	// Another way for dp
+	// Dp solution, easy to understand
     public int rob(int[] nums){
-        if(nums == null || nums.length == 0){
-            return 0;
+    	// Cases that could be return right away
+        if(nums.length == 0){ // Return 0 if empty
+        	return 0;
+        } else if (nums.length == 1){ // If one element
+        	return nums[0];
+        } else if (nums.length == 2){ // If two element, compare both
+        	return Math.max(nums[0], nums[1]);
         }
-        
-        if(nums.length == 1){
-            return nums[0];
-        }
-        
-        if(nums.length == 2){
-            return Math.max(nums[0], nums[1]);
-        }
-        
+
+        // Bottom up approach with dynamic programming
         int[] dp = new int[nums.length];
         
+        // Set up some default value like index 0
         dp[0] = nums[0];
         dp[1] = Math.max(nums[0], nums[1]);
         
-        for(int i = 2; i < dp.length; i++){
-            dp[i] = Math.max(dp[i - 1], nums[i] + dp[i - 2]);
+        // Starting from 2, compare the previous dp element with current element and previous previous dp element
+        for(int i = 2; i < nums.length; i++){
+        	dp[i] = Math.max(dp[i - 1], nums[i] + dp[i-2]);
         }
         
+        // Returning the last value of the dp array
         return dp[nums.length - 1];
+        
     }
 }
