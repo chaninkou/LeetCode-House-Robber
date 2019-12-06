@@ -92,8 +92,10 @@ public class FindMaximumMoneyRobFunction {
         // Bottom up approach with dynamic programming
         int[] dp = new int[nums.length];
         
-        // Set up some default value like index 0
+        // Set up some default value like index 0, mostly 0
         dp[0] = nums[0];
+        
+        // index 1 will be the max of element 0 or element 1, since we want to see which one is bigger
         dp[1] = Math.max(nums[0], nums[1]);
         
         // Starting from 2, compare the previous dp element with current element and previous previous dp element
