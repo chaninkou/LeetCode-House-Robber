@@ -60,6 +60,7 @@ public class FindMaximumMoneyRobFunction {
 	// return memo[nums.length];
 	// }
 	
+//  Good point to compare from dynamic programming vs keeping track of maximum 	
 //	public int rob(int[] nums){
 //		if(nums.length == 0){
 //			return 0;
