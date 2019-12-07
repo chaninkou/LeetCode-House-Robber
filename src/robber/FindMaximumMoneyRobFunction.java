@@ -78,7 +78,7 @@ public class FindMaximumMoneyRobFunction {
 //		return currentMax;
 //	}
 	
-	// Dynamic programming solution, easy to understand
+	// Dynamic programming solution, easy to understand, another version is the code above.
     public int rob(int[] nums){
     	// Cases that could be return right away
         if(nums.length == 0){ // Return 0 if empty
