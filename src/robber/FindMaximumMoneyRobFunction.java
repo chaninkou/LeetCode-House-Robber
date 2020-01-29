@@ -28,7 +28,7 @@ public class FindMaximumMoneyRobFunction {
         	dp[i] = Math.max(dp[i - 1], nums[i] + dp[i-2]);
         }
         
-        // Returning the last value of the dp array
+        // length - 1 to get the last element
         return dp[nums.length - 1];
     }
     
