@@ -32,7 +32,7 @@ public class FindMaximumMoneyRobFunction {
         return dp[nums.length - 1];
     }
     
-	// Using iterative way with memo as to track the max from bottom-top, but using dp[0] = 0
+	// Different method but same concept
 	public int rob1(int[] nums) {
     	// Corner case
         if(nums.length == 0){ // Return 0 if empty
