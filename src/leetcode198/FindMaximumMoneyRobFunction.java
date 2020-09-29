@@ -1,4 +1,4 @@
-package robber;
+package leetcode198;
 
 import java.util.Arrays;
 
